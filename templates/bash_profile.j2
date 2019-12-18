@@ -1,3 +1,3 @@
 #!/bin/bash
 
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx -- "{{ kiosk_startx_params }}"
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx -- {{ kiosk_startx_params }}

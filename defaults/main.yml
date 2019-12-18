@@ -1,5 +1,5 @@
 ---
-kiosk_url: 'http://www.clocktab.com'
+kiosk_url: "https://duckduckgo.com"
 kiosk_delay: 1
 
 kiosk_startx_parameters: "-nocursor"
