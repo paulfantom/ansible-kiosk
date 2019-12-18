@@ -1,0 +1,54 @@
+---
+- name: Ensure desktop environment is installed
+  apt:
+    name:
+      - xserver-xorg
+      - x11-xserver-utils
+      - xinit
+      - openbox
+    install_recommends: false
+    state: present
+
+- name: Ensure browser is installed
+  apt:
+    name: chromium-browser
+    state: present
+
+- name: Ensure autologin systemd dir exists
+  file:
+    path: /etc/systemd/system/getty@tty1.service.d
+    state: directory
+
+- name: Enable autologin
+  file:
+    src: /lib/systemd/system/getty@.service
+    dest: /etc/systemd/system/getty.target.wants/getty@tty1.service
+    force: true
+    state: link
+  notify: systemd reload
+
+- name: Configure default systemd target
+  file:
+    src: /lib/systemd/system/multi-user.target
+    dest: /etc/systemd/system/default.target
+    state: link
+    force: true
+  notify: systemd reload
+
+- name: Configure CLI autologin
+  template:
+    src: autologin.conf.j2
+    dest: /etc/systemd/system/getty@tty1.service.d/autologin.conf
+  notify: systemd reload
+
+- name: Configure openbox
+  template:
+    src: openbox.j2
+    dest: /etc/xdg/openbox/autostart
+
+- name: Set autostart on boot in bash_profile
+  template:
+    src: bash_profile.j2
+    dest: /home/pi/.bash_profile
+    owner: 1000
+    group: 1000

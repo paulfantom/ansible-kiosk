@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  author: Pawel Krupa (@paulfantom)
+  description: Deploy kiosk
+  role_name: kiosk
+  license: MIT
+  company: none
+  min_ansible_version: 2.7
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+  galaxy_tags:
+    - kiosk
+    - raspberry
+    - gui
+    - xorg
+    - openbox
+
+dependencies: []
