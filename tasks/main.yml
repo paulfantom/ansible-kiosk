@@ -66,3 +66,9 @@
     content: ""
     dest: /etc/motd
     force: true
+
+- name: No more issue message
+  copy:
+    content: ""
+    dest: /etc/issue
+    force: true
