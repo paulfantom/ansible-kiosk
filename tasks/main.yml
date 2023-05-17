@@ -52,3 +52,11 @@
     dest: /home/{{ kiosk_user }}/.bash_profile
     owner: 1000
     group: 1000
+
+- name: Create hushlogin to disable message when log-in
+  copy:
+    content: ""
+    dest: /home/{{ kiosk_user }}/.hushlogin
+    force: false
+    owner: "{{ kiosk_user }}"
+    mode: 0664
