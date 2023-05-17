@@ -60,3 +60,9 @@
     force: false
     owner: "{{ kiosk_user }}"
     mode: 0664
+
+- name: No more message of the day
+  copy:
+    content: ""
+    dest: /etc/motd
+    force: true
