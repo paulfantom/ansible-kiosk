@@ -24,6 +24,7 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 | `kiosk_delay` | 1 | delay (in seconds) before starting a browser |
 | `kiosk_startx_params` | ["-nocursor"] | parameters to run `startx` with |
 | `kiosk_browser_params` | ["--disable-infobars", "--kiosk"] | parameters to start browser with |
+| `kiosk_user` | ["pi"] | autologin with this user |
 
 ## Example
 

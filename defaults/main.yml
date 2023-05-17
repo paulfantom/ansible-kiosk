@@ -7,3 +7,5 @@ kiosk_startx_params:
 kiosk_browser_params:
   - "--disable-infobars"
   - "--kiosk"
+
+kiosk_user: pi

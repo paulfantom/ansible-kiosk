@@ -49,6 +49,26 @@
 - name: Set autostart on boot in bash_profile
   template:
     src: bash_profile.j2
-    dest: /home/pi/.bash_profile
+    dest: /home/{{ kiosk_user }}/.bash_profile
     owner: 1000
     group: 1000
+
+- name: Create hushlogin to disable message when log-in
+  copy:
+    content: ""
+    dest: /home/{{ kiosk_user }}/.hushlogin
+    force: false
+    owner: "{{ kiosk_user }}"
+    mode: 0664
+
+- name: No more message of the day
+  copy:
+    content: ""
+    dest: /etc/motd
+    force: true
+
+- name: No more issue message
+  copy:
+    content: ""
+    dest: /etc/issue
+    force: true
